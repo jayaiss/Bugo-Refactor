@@ -31,6 +31,19 @@ Route::get('/admin', function () {
 Route::get('/appointments', function () {
     return view('admin.appointments');
 });
+Route::get('/on-site-req', function () {
+    return view('admin.on-site-req');
+});
+Route::get('/beso-list', function () {
+    return view('admin.beso-list');
+});
+Route::get('/case-list', function () {
+    return view('admin.case-list');
+});
+Route::get('/event-list', function () {
+    return view('admin.event-list');
+});
+
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

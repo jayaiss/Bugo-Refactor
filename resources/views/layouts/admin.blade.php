@@ -53,7 +53,7 @@
                     <svg class="w-4 h-4 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
                 <div class="mt-1 space-y-1 bg-slate-800/50 py-1">
-                    <a href="/on-site" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                <a href="/on-site-req" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
                         <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> On-Site Request
                     </a>
                     <a href="/appointments" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
@@ -73,7 +73,7 @@
                     <svg class="w-4 h-4 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
                 <div class="mt-1 space-y-1 bg-slate-800/50 py-1">
-                    <a href="/beso/list" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                    <a href="/beso-list" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
                         <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> BESO List
                     </a>
                 </div>
@@ -90,7 +90,7 @@
                     <svg class="w-4 h-4 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
                 <div class="mt-1 space-y-1 bg-slate-800/50 py-1">
-                    <a href="/lupon/cases" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                    <a href="/case-list" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
                         <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> Case List
                     </a>
                 </div>
@@ -107,7 +107,7 @@
                     <svg class="w-4 h-4 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
                 <div class="mt-1 space-y-1 bg-slate-800/50 py-1">
-                    <a href="/multimedia/events" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                    <a href="/event-list" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
                         <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> Event List
                     </a>
                 </div>
