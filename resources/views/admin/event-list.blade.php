@@ -10,14 +10,17 @@
         <div>
             <h1 class="text-4xl font-black text-slate-900 tracking-tighter">Event Management</h1>
             <p class="text-slate-500 text-[11px] font-bold uppercase tracking-[0.3em] mt-2 flex items-center gap-2">
-                <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                <span class="w-2 h-2 bg-slate-900 rounded-full animate-pulse"></span>
                 Multimedia Department Schedule
             </p>
         </div>
 
         <div class="flex flex-wrap gap-4">
             <button type="button"
-                class="bg-white border border-slate-200 text-slate-600 text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-2xl hover:bg-slate-50 transition-all flex items-center gap-3 shadow-sm hover:shadow-md">
+                onclick="window.print()"
+                class="bg-white border border-slate-200 text-slate-700 text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-2xl
+                       hover:bg-slate-50 transition-all flex items-center gap-3 shadow-sm hover:shadow-md
+                       focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
@@ -27,8 +30,10 @@
             </button>
 
             <button type="button"
-                onclick="document.getElementById('addEventModal').classList.remove('hidden')"
-                class="bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-2xl transition-all shadow-xl shadow-blue-600/30 flex items-center gap-3 hover:-translate-y-1 active:scale-95">
+                data-open-modal="addEventModal"
+                class="bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-2xl
+                       transition-all shadow-xl shadow-slate-900/20 flex items-center gap-3 hover:-translate-y-1 active:scale-95
+                       focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path>
                 </svg>
@@ -43,12 +48,15 @@
             <div class="flex flex-col md:flex-row gap-6 items-end">
 
                 <div class="flex-grow">
-                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">Find Event</label>
+                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">
+                        Find Event
+                    </label>
                     <div class="relative group">
                         <input type="text" name="q" value="{{ request('q') }}"
-                            class="w-full bg-slate-50 border-0 rounded-2xl py-4 pl-12 pr-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all"
+                            class="w-full bg-slate-50 border-0 rounded-2xl py-4 pl-12 pr-4 text-sm font-bold
+                                   ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition-all"
                             placeholder="Search title or location...">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-300 group-focus-within:text-blue-600">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-300 group-focus-within:text-slate-900 transition-colors">
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -58,9 +66,12 @@
                 </div>
 
                 <div class="w-full md:w-40">
-                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">Year</label>
+                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">
+                        Year
+                    </label>
                     <select name="year"
-                        class="w-full bg-slate-50 border-0 rounded-2xl py-4 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none cursor-pointer text-slate-700">
+                        class="w-full bg-slate-50 border-0 rounded-2xl py-4 px-4 text-sm font-bold
+                               ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none cursor-pointer text-slate-700">
                         <option value="">All</option>
                         <option value="2026" @selected(request('year') == '2026')>2026</option>
                         <option value="2025" @selected(request('year') == '2025')>2025</option>
@@ -68,9 +79,12 @@
                 </div>
 
                 <div class="w-full md:w-48">
-                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">Month</label>
+                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">
+                        Month
+                    </label>
                     <select name="month"
-                        class="w-full bg-slate-50 border-0 rounded-2xl py-4 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none cursor-pointer text-slate-700">
+                        class="w-full bg-slate-50 border-0 rounded-2xl py-4 px-4 text-sm font-bold
+                               ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none cursor-pointer text-slate-700">
                         <option value="">All Months</option>
                         @foreach(range(1,12) as $m)
                             <option value="{{ $m }}" @selected((int)request('month') === $m)>
@@ -80,11 +94,20 @@
                     </select>
                 </div>
 
-                <div>
+                <div class="flex gap-2">
                     <button type="submit"
-                        class="bg-slate-900 hover:bg-slate-800 text-white font-black text-[11px] uppercase tracking-widest py-4.5 px-8 rounded-2xl transition-all shadow-lg shadow-slate-900/10 h-[54px]">
+                        class="bg-slate-900 hover:bg-slate-800 text-white font-black text-[11px] uppercase tracking-widest
+                               py-4 px-8 rounded-2xl transition-all shadow-lg shadow-slate-900/10 h-[54px]
+                               focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2">
                         Filter
                     </button>
+
+                    <a href="{{ url()->current() }}"
+                        class="bg-white hover:bg-slate-50 text-slate-700 font-black text-[11px] uppercase tracking-widest
+                               py-4 px-8 rounded-2xl transition-all border border-slate-200 h-[54px] inline-flex items-center
+                               focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2">
+                        Clear
+                    </a>
                 </div>
 
             </div>
@@ -94,7 +117,7 @@
     {{-- TABLE --}}
     <div class="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
 
-        <div class="bg-blue-600 px-8 py-5 flex items-center gap-4">
+        <div class="bg-slate-900 px-8 py-5 flex items-center gap-4">
             <div class="p-2 bg-white/10 rounded-lg">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -118,12 +141,11 @@
 
                 <tbody class="divide-y divide-slate-50">
                     @forelse($events ?? [] as $event)
-                        <tr class="hover:bg-blue-50/30 transition-all group">
+                        <tr class="hover:bg-slate-50 transition-all group">
 
                             <td class="px-8 py-6 align-top">
-                                {{-- STRUCTURE ONLY: replace fields as needed --}}
                                 <div class="flex items-start gap-4">
-                                    <div class="flex-shrink-0 w-14 h-14 bg-blue-50 rounded-xl border border-blue-100 flex flex-col items-center justify-center text-blue-700 shadow-sm group-hover:bg-white group-hover:border-blue-200 transition-colors">
+                                    <div class="flex-shrink-0 w-14 h-14 bg-slate-50 rounded-xl border border-slate-200 flex flex-col items-center justify-center text-slate-900 shadow-sm group-hover:bg-white group-hover:border-slate-300 transition-colors">
                                         <span class="text-[10px] font-black uppercase tracking-wider">
                                             {{ $event->month ?? 'Jan' }}
                                         </span>
@@ -133,7 +155,7 @@
                                     </div>
 
                                     <div>
-                                        <div class="text-sm font-black text-slate-900 group-hover:text-blue-600 transition-colors">
+                                        <div class="text-sm font-black text-slate-900 group-hover:text-slate-700 transition-colors">
                                             {{ $event->title ?? 'Event Title' }}
                                         </div>
                                         <div class="text-[10px] text-slate-400 font-bold uppercase mt-1 tracking-wide">
@@ -160,7 +182,6 @@
                             </td>
 
                             <td class="px-8 py-6 align-top">
-                                {{-- STRUCTURE ONLY: swap badge logic later --}}
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest bg-emerald-100 text-emerald-700 border border-emerald-200">
                                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                                     {{ $event->status ?? 'Upcoming' }}
@@ -169,8 +190,10 @@
 
                             <td class="px-8 py-6 align-top text-center">
                                 <div class="flex justify-center gap-3">
-                                    <button type="button" class="text-slate-400 hover:text-blue-600 hover:scale-110 transition-transform">
-                                        {{-- view icon --}}
+                                    <button type="button"
+                                        onclick="alert('Demo only: view modal will be connected later.')"
+                                        class="text-slate-400 hover:text-slate-900 hover:scale-110 transition-transform"
+                                        title="View">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -178,16 +201,20 @@
                                         </svg>
                                     </button>
 
-                                    <button type="button" class="text-slate-400 hover:text-amber-500 hover:scale-110 transition-transform">
-                                        {{-- edit icon --}}
+                                    <button type="button"
+                                        onclick="alert('Demo only: edit modal will be connected later.')"
+                                        class="text-slate-400 hover:text-amber-500 hover:scale-110 transition-transform"
+                                        title="Edit">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                         </svg>
                                     </button>
 
-                                    <button type="button" class="text-slate-400 hover:text-red-600 hover:scale-110 transition-transform">
-                                        {{-- delete icon --}}
+                                    <button type="button"
+                                        onclick="alert('Demo only: delete confirmation will be connected later.')"
+                                        class="text-slate-400 hover:text-rose-600 hover:scale-110 transition-transform"
+                                        title="Delete">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
@@ -209,19 +236,183 @@
 
             </table>
         </div>
+
+        {{-- Footer / Pagination placeholder --}}
+        <div class="bg-slate-50 px-8 py-5 border-t border-slate-100 flex justify-between items-center text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+            <span>Showing entries 1-10 of 0</span>
+            <div class="flex gap-2">
+                <button type="button"
+                    class="w-9 h-9 flex items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-400 hover:text-slate-900 hover:border-slate-400 transition-all"
+                    onclick="alert('Demo only')">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button type="button"
+                    class="w-9 h-9 flex items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-400 hover:text-slate-900 hover:border-slate-400 transition-all"
+                    onclick="alert('Demo only')">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 
-{{-- MODAL STRUCTURE ONLY --}}
-<div id="addEventModal" class="hidden fixed inset-0 z-[100] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center">
-    <div class="bg-white w-full max-w-xl rounded-[2.5rem] shadow-2xl border border-slate-100 p-8">
-        {{-- put your modal form here --}}
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="text-lg font-black text-slate-900">Create Event</h3>
-            <button type="button" onclick="document.getElementById('addEventModal').classList.add('hidden')"
-                class="text-slate-400 hover:text-slate-900 font-black">✕</button>
+{{-- ADD EVENT MODAL (WORKING + ESC + Click overlay) --}}
+<div id="addEventModal" class="hidden fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-labelledby="addEventTitle">
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" data-close-modal="addEventModal"></div>
+
+    <div class="relative mx-auto w-full max-w-2xl px-4 py-10">
+        <div class="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden">
+
+            <div class="px-8 py-5 bg-slate-900 flex items-center justify-between">
+                <h3 id="addEventTitle" class="text-white text-sm font-black uppercase tracking-widest">Create Event</h3>
+                <button type="button" class="text-white/70 hover:text-white" data-close-modal="addEventModal" aria-label="Close">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <form class="p-8 space-y-5"
+                  onsubmit="event.preventDefault(); alert('Demo only: will connect backend later.');">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Event Title</label>
+                        <input type="text"
+                            class="w-full bg-slate-50 border-0 rounded-2xl py-3 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition-all"
+                            placeholder="e.g., Barangay Assembly">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Organizer</label>
+                        <input type="text"
+                            class="w-full bg-slate-50 border-0 rounded-2xl py-3 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition-all"
+                            placeholder="e.g., Multimedia Team">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Date</label>
+                        <input type="date"
+                            class="w-full bg-slate-50 border-0 rounded-2xl py-3 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition-all">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Time</label>
+                        <input type="text"
+                            class="w-full bg-slate-50 border-0 rounded-2xl py-3 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition-all"
+                            placeholder="e.g., 08:00 AM - 12:00 PM">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Location</label>
+                    <input type="text"
+                        class="w-full bg-slate-50 border-0 rounded-2xl py-3 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition-all"
+                        placeholder="e.g., Barangay Hall">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Status</label>
+                        <select
+                            class="w-full bg-slate-50 border-0 rounded-2xl py-3 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none cursor-pointer">
+                            <option>Upcoming</option>
+                            <option>Ongoing</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Attachment (optional)</label>
+                        <input type="file"
+                            class="w-full bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl py-3 px-4 text-sm font-bold
+                                   cursor-pointer hover:border-slate-900 transition-colors"
+                            accept="image/*,video/*,.pdf">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Notes (optional)</label>
+                    <textarea rows="4"
+                        class="w-full bg-slate-50 border-0 rounded-2xl py-3 px-4 text-sm font-bold ring-1 ring-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition-all resize-none"
+                        placeholder="Short description / requirements…"></textarea>
+                </div>
+
+                <div class="flex gap-3 pt-2">
+                    <button type="button"
+                        class="flex-1 bg-white border border-slate-200 text-slate-700 font-black text-[11px] uppercase tracking-widest py-3.5 rounded-2xl hover:bg-slate-50 transition-all"
+                        data-close-modal="addEventModal">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                        class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-black text-[11px] uppercase tracking-widest py-3.5 rounded-2xl transition-all shadow-lg shadow-slate-900/15">
+                        Save Event
+                    </button>
+                </div>
+            </form>
         </div>
-        <div class="text-sm text-slate-500 font-bold">Modal content here…</div>
     </div>
 </div>
+
+{{-- Reusable Modal System --}}
+<script>
+(function () {
+  let lastFocused = null;
+
+  function isHidden(el){ return el.classList.contains('hidden'); }
+
+  function openModal(id, trigger = null) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+
+    lastFocused = trigger || document.activeElement;
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+
+    setTimeout(() => {
+      const focusable = modal.querySelector('input, select, textarea, button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      focusable?.focus();
+    }, 0);
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+
+    modal.classList.add('hidden');
+
+    const anyOpen = Array.from(document.querySelectorAll('[role="dialog"]')).some(m => !isHidden(m));
+    if (!anyOpen) document.body.classList.remove('overflow-hidden');
+
+    lastFocused?.focus?.();
+  }
+
+  document.addEventListener('click', (e) => {
+    const openBtn = e.target.closest('[data-open-modal]');
+    if (openBtn) {
+      openModal(openBtn.getAttribute('data-open-modal'), openBtn);
+      return;
+    }
+
+    const closeBtn = e.target.closest('[data-close-modal]');
+    if (closeBtn) {
+      closeModal(closeBtn.getAttribute('data-close-modal'));
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const open = Array.from(document.querySelectorAll('[role="dialog"]')).filter(m => !isHidden(m));
+    const top = open[open.length - 1];
+    if (top?.id) closeModal(top.id);
+  });
+})();
+</script>
 @endsection
