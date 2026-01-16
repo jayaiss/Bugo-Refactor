@@ -7,98 +7,80 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use Inertia\Inertia;
 use App\Http\Controllers\ResidentController;
+use Illuminate\Http\Request; // Needed for the login check
 
+// --- 1. LANDING PAGE (Root URL) ---
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+    return view('admin.landing_page'); 
+})->name('home');
+
+// --- 2. LOGIN PAGE (View) ---
+// This overrides the default auth login view
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+// --- 3. CUSTOM FRONTEND LOGIN LOGIC ---
+// This handles the form submission
+Route::post('/login', function (Request $request) {
+    
+    // Hardcoded credentials for Frontend Demo
+    $demoEmail = 'admin@barangay.gov.ph';
+    $demoPassword = 'password';
+
+    if ($request->email === $demoEmail && $request->password === $demoPassword) {
+        // SUCCESS: Redirect to Dashboard
+        return redirect('/dashboard');
+    }
+
+    // FAILURE: Go back with error
+    return back()->withErrors([
+        'email' => 'Invalid credentials for demo.',
     ]);
 });
 
-// 1. Simple Route for the About Page (Direct View)
-Route::view('/about', 'about');
-
-// 2. Controller Route for Residents Page
-Route::get('/residents', [ResidentController::class, 'index']);
-
+// --- 4. DASHBOARD (UNPROTECTED FOR DEMO) ---
+// I removed "middleware(['auth'])" so you can access it without a database user
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
-Route::get('/admin', function () {
-    return view('layouts.admin');
-});
+// --- 5. LOGOUT LOGIC ---
+Route::post('/logout', function () {
+    // Since we aren't using real auth, we just redirect to Landing Page
+    return redirect('/'); 
+})->name('logout');
 
-Route::get('/on-site_request', function () {
-    return view('admin.on-site_request');
-});
 
-Route::get('/appointment_list', function () {
-    return view('admin.appointment_list'); 
-});
-Route::get('/event_list', function () {
-    return view('admin.event_list'); 
-});
-Route::get('/reports', function () {
-    return view('admin.reports'); 
-});
-Route::get('/resident_audit', function () {
-    return view('admin.resident_audit'); 
-});
-Route::get('/admin_audit', function () {
-    return view('admin.admin_audit'); 
-});
-Route::get('/archive', function () {
-    return view('admin.archive'); 
-});
-Route::get('/feedbacks', function () {
-    return view('admin.feedbacks'); 
-});
-Route::get('/announcements', function () {
-    return view('admin.announcements'); 
-});
-Route::get('/faqs', function () {
-    return view('admin.faqs'); 
-});
-Route::get('/cases', function () {
-    return view('admin.cases'); 
-});
-Route::get('/request_list', function () {
-    return view('admin.request_list'); 
-});
-Route::get('/medicine_inventory', function () {
-    return view('admin.medicine_inventory'); 
-});
-Route::get('/resident_list', function () {
-    return view('admin.resident_list'); 
-});
+// --- OTHER ADMIN PAGES ---
+Route::get('/admin', function () { return view('layouts.admin'); });
+Route::get('/on-site_request', function () { return view('admin.on-site_request'); });
+Route::get('/appointment_list', function () { return view('admin.appointment_list'); });
+Route::get('/event_list', function () { return view('admin.event_list'); });
+Route::get('/reports', function () { return view('admin.reports'); });
+Route::get('/resident_audit', function () { return view('admin.resident_audit'); });
+Route::get('/admin_audit', function () { return view('admin.admin_audit'); });
+Route::get('/archive', function () { return view('admin.archive'); });
+Route::get('/feedbacks', function () { return view('admin.feedbacks'); });
+Route::get('/announcements', function () { return view('admin.announcements'); });
+Route::get('/faqs', function () { return view('admin.faqs'); });
+Route::get('/cases', function () { return view('admin.cases'); });
+Route::get('/request_list', function () { return view('admin.request_list'); });
+Route::get('/medicine_inventory', function () { return view('admin.medicine_inventory'); });
+Route::get('/resident_list', function () { return view('admin.resident_list'); });
 
-// --- UPDATED AUTH ROUTES (Profile & Settings) ---
-Route::middleware('auth')->group(function () {
-    
-    // 1. Profile Page - VIEW
-    Route::get('/profile', function () {
-        return view('profile.edit');
-    })->name('profile.edit');
+// --- SETTINGS & PROFILE ---
+Route::get('/edit_settings', function () {
+    return view('Profile_Settings.edit_settings'); 
+})->name('settings.edit'); 
 
-    // 2. Profile Page - SAVE ACTION (Placeholder)
-    // We need this route defined or the form on the profile page will crash
-    Route::patch('/profile', function () {
-        return back(); 
-    })->name('profile.update');
+Route::get('/edit_profile', function () {
+    return view('profile.edit_profile'); 
+})->name('profile.edit'); 
 
-    // 3. Settings Page - VIEW
-    Route::get('/Profile_Settings', function () {
-        return view('/Profile_Settings.edit_settings');
-    })->name('/Profile_Settings.edit_settings');
+// --- ABOUT & RESIDENTS ---
+Route::view('/about', 'about');
+Route::get('/residents', [ResidentController::class, 'index']);
 
-    // 4. Settings Page - SAVE ACTION (Placeholder)
-    // We need this route defined or the form on the settings page will crash
-    Route::put('/password', function () {
-        return back();
-    })->name('password.update');
-});
-
-require __DIR__.'/auth.php';
+// Note: I commented out 'require auth.php' so it doesn't interfere with our custom frontend logic
+// require __DIR__.'/auth.php';
