@@ -54,9 +54,9 @@ Route::post('/logout', function () {
 
 // --- OTHER ADMIN PAGES ---
 Route::get('/admin', function () { return view('layouts.admin'); });
-Route::get('/on-site_request', function () { return view('admin.on-site_request'); });
+Route::get('/on-site-req', function () { return view('admin.on-site-req'); });
 Route::get('/appointment_list', function () { return view('admin.appointment_list'); });
-Route::get('/event_list', function () { return view('admin.event_list'); });
+Route::get('/event-list', function () { return view('admin.event-list'); });
 Route::get('/reports', function () { return view('admin.reports'); });
 Route::get('/resident_audit', function () { return view('admin.resident_audit'); });
 Route::get('/admin_audit', function () { return view('admin.admin_audit'); });
@@ -64,10 +64,11 @@ Route::get('/archive', function () { return view('admin.archive'); });
 Route::get('/feedbacks', function () { return view('admin.feedbacks'); });
 Route::get('/announcements', function () { return view('admin.announcements'); });
 Route::get('/faqs', function () { return view('admin.faqs'); });
-Route::get('/cases', function () { return view('admin.cases'); });
+Route::get('/case-list', function () { return view('admin.case-list'); });
 Route::get('/request_list', function () { return view('admin.request_list'); });
 Route::get('/medicine_inventory', function () { return view('admin.medicine_inventory'); });
 Route::get('/resident_list', function () { return view('admin.resident_list'); });
+Route::get('/beso-list', function () { return view('admin.beso-list'); });
 
 // --- SETTINGS & PROFILE ---
 Route::get('/edit_settings', function () {

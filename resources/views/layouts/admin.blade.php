@@ -62,9 +62,13 @@
                     </div>
                     <svg class="w-3 h-3 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
-                <div class="mt-0.5 space-y-0.5 pl-1">
-                    <a href="/on-site_request" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">On-Site Request</a>
-                    <a href="/appointment_list" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Appointments</a>
+                <div class="mt-1 space-y-1 bg-slate-800/50 py-1">
+                <a href="/on-site-req" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                        <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> On-Site Request
+                    </a>
+                    <a href="/appointment_list" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                        <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> Appointment List
+                    </a>
                 </div>
             </details>
 
@@ -78,8 +82,10 @@
                     </div>
                     <svg class="w-3 h-3 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
-                <div class="mt-0.5 space-y-0.5 pl-1">
-                    <a href="/beso/list" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">BESO List</a>
+                <div class="mt-1 space-y-1 bg-slate-800/50 py-1">
+                    <a href="/beso-list" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                        <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> BESO List
+                    </a>
                 </div>
             </details>
 
@@ -93,8 +99,10 @@
                     </div>
                     <svg class="w-3 h-3 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
-                <div class="mt-0.5 space-y-0.5 pl-1">
-                    <a href="/cases" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Case List</a>
+                <div class="mt-1 space-y-1 bg-slate-800/50 py-1">
+                    <a href="/case-list" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                        <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> Case List
+                    </a>
                 </div>
             </details>
 
@@ -108,8 +116,10 @@
                     </div>
                     <svg class="w-3 h-3 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
-                <div class="mt-0.5 space-y-0.5 pl-1">
-                    <a href="/event_list" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Event List</a>
+                <div class="mt-1 space-y-1 bg-slate-800/50 py-1">
+                    <a href="/event-list" class="flex items-center pl-12 pr-4 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                        <span class="w-1.5 h-1.5 bg-slate-600 rounded-full mr-3 group-hover:bg-blue-500"></span> Event List
+                    </a>
                 </div>
             </details>
 
@@ -145,12 +155,12 @@
                     <svg class="w-3 h-3 text-slate-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
                 <div class="mt-0.5 space-y-0.5 pl-1">
-                    <a href="/info/officials" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Officials</a>
-                    <a href="/info/employees" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Employees</a>
-                    <a href="/info/certificates" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Certificates</a>
-                    <a href="/info/timeslots" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Time Slots</a>
-                    <a href="/info/zone-leaders" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Zone Leaders</a>
-                    <a href="/info/guidelines" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Guidelines</a>
+                    <a href="/official-list" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Officials</a>
+                    <a href="/employee-list" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Employees</a>
+                    <a href="/certificate" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Certificates</a>
+                    <a href="/time-slot" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Time Slots</a>
+                    <a href="/zone-leaders" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Zone Leaders</a>
+                    <a href="/guidelines" class="flex items-center px-2 py-1.5 text-xs rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-colors ml-7">Guidelines</a>
                 </div>
             </details>
 
